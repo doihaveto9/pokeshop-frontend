@@ -1,0 +1,16 @@
+.translucent-container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    min-height: 200px;
+}
+
+.translucent-container h3,
+.translucent-container h4,
+.translucent-container p {
+    color: #000000;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
