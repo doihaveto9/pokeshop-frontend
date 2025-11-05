@@ -14,16 +14,15 @@ function HomePage() {
 
     // Replace these with your actual image URLs
     const carouselImages = [
-        "/Assets/wallhaven-j3vrzy_3840x2160.png",
-        "/Assets/WIN_20250718_10_35_10_Pro.jpg",
-        "/Assets/WIN_20251028_14_52_54_Pro.jpg"
+        "/Assets/PokemonImage-1.webp",
+        "/Assets/PokemonImage-2.webp",
+        "/Assets/PokemonImage-3.jpg"
     ];
 
     return (
         <Container fluid className="py-4">
             {/* Image Carousel */}
-            <Row className="mb-4">
-                <Col>
+            <div className="mx-5">
                     <Carousel activeIndex={index} onSelect={handleSelect}>
                         {carouselImages.map((image, idx) => (
                             <Carousel.Item key={idx}>
@@ -36,8 +35,7 @@ function HomePage() {
                             </Carousel.Item>
                         ))}
                     </Carousel>
-                </Col>
-            </Row>
+            </div>
 
             {/* Content Containers */}
             <Row className="g-3">
