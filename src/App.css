@@ -1,6 +1,5 @@
 .background {
         min-height: 100vh;
-        background-image: url('/Assets/PokemonCenterImage.jpeg'); /* relative to public folder in React */
         background-size: cover;      /* scales image to cover entire area */
         background-position: center; /* centers the image */
         background-repeat: no-repeat;

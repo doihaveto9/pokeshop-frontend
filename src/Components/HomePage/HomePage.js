@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -7,6 +8,23 @@ import "./HomePage.css";
 
 function HomePage() {
     const [index, setIndex] = useState(0);
+    const [featured, setFeatured] = useState([]);
+    const [loadingFeatured, setLoadingFeatured] = useState(false);
+
+    useEffect(() => {
+      setLoadingFeatured(true);
+
+      axios.get('http://localhost:8080/getFeaturedItems')
+      .then(response => {
+        setFeatured(response.data);
+        setLoadingFeatured(false);
+      })
+      .catch(error => {
+        console.error("Error fetching stories:", error);
+        setLoadingFeatured(false);
+      });
+
+    }, []);
 
     const handleSelect = (selectedIndex) => {
         setIndex(selectedIndex);
@@ -22,7 +40,7 @@ function HomePage() {
     return (
         <Container fluid className="py-4">
             {/* Image Carousel */}
-            <div className="mx-5">
+            <div className="carousel-container mx-5">
                     <Carousel activeIndex={index} onSelect={handleSelect}>
                         {carouselImages.map((image, idx) => (
                             <Carousel.Item key={idx}>
@@ -42,11 +60,8 @@ function HomePage() {
                 {/* Left Container - 2/3 width */}
                 <Col lg={8} md={12} className="mb-3">
                     <div className="translucent-container p-4 rounded">
-                        <h3 className="text-dark mb-3">Featured Content</h3>
-                        <p className="text-dark">
-                            This is the main content area taking up 2/3 of the page width.
-                            Add your featured items, promotions, or other important content here.
-                        </p>
+                        <h3 className="text-dark mb-3">Featured</h3>
+                        
                     </div>
                 </Col>
 

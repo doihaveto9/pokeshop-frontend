@@ -1,5 +1,10 @@
+.carousel-container {
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 8px;
+}
+
 .translucent-container {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     min-height: 200px;
